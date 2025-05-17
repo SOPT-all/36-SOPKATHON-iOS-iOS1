@@ -7,12 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		98372CFD2DD91A3E00D5B62D /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98372CFC2DD91A3E00D5B62D /* Config.swift */; };
 		D80B6BFC2DD827AA008A2CC9 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = D80B6BFB2DD827AA008A2CC9 /* SnapKit */; };
 		D80B6BFF2DD8287E008A2CC9 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = D80B6BFE2DD8287E008A2CC9 /* Then */; };
 		D80B6C022DD828EC008A2CC9 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = D80B6C012DD828EC008A2CC9 /* Kingfisher */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		98372CFC2DD91A3E00D5B62D /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		CB763BBA2DD64FCD0073DFCD /* SOPKATHON36.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SOPKATHON36.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -54,6 +56,7 @@
 		CB763BB12DD64FCD0073DFCD = {
 			isa = PBXGroup;
 			children = (
+				98372CFC2DD91A3E00D5B62D /* Config.swift */,
 				CB763BBC2DD64FCD0073DFCD /* SOPKATHON36 */,
 				CB763BBB2DD64FCD0073DFCD /* Products */,
 			);
@@ -149,6 +152,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				98372CFD2DD91A3E00D5B62D /* Config.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
