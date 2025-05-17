@@ -32,6 +32,26 @@ final class HomeViewController: UIViewController {
         $0.textColor = .black
     }
     
+    private let showMoreButton = UIButton().then {
+        var config = UIButton.Configuration.plain()
+        let title = "자세히 보기"
+
+        config.attributedTitle = AttributedString(title, attributes: AttributeContainer([
+            .font: UIFont.micro,
+            .foregroundColor: UIColor.black
+        ]))
+        
+        config.image = UIImage(named: "rightArrow")
+        config.imagePlacement = .trailing
+        
+        config.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0)
+        config.background.backgroundColor = .clear
+        config.cornerStyle = .fixed
+
+        $0.configuration = config
+        $0.sizeToFit()
+    }
+
 
     
     // MARK: Life Cycle
@@ -64,7 +84,9 @@ extension HomeViewController {
         }
         
         [recommendTitleLabel,
-         recommendSubTitleLabel].forEach {
+         recommendSubTitleLabel,
+         showMoreButton
+        ].forEach {
             collectionViewBackgroundView.addSubview($0)
         }
 
@@ -87,6 +109,13 @@ extension HomeViewController {
             $0.top.equalTo(recommendTitleLabel.snp.bottom).offset(-2)
             $0.leading.equalTo(recommendTitleLabel.snp.leading)
             $0.height.equalTo(20)
+        }
+        
+        showMoreButton.snp.makeConstraints {
+            $0.trailing.equalToSuperview().inset(16)
+            $0.top.equalTo(recommendTitleLabel.snp.top)
+            $0.width.greaterThanOrEqualTo(55)
+            $0.height.equalTo(15)
         }
     }
 }
