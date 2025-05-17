@@ -35,6 +35,14 @@ final class HomeViewController: UIViewController {
         $0.textColor = .black
     }
     
+    private let bannerCountLabel = UILabel().then {
+        $0.text = "1 / 3"
+        $0.font = .caption1
+        $0.textColor = .black
+        $0.textAlignment = .center
+        $0.backgroundColor = .systemGray4
+    }
+    
     private let collectionViewBackgroundView = UIView().then {
         $0.backgroundColor = .systemGray4
     }
@@ -115,6 +123,7 @@ extension HomeViewController {
         [menuNavigationButton,
          welcomeSubtitleLabel,
          welcomeTitleLabel,
+         bannerCountLabel,
          collectionViewBackgroundView].forEach {
             contentView.addSubview($0)
         }
@@ -154,6 +163,13 @@ extension HomeViewController {
             $0.leading.equalToSuperview().offset(16)
             $0.bottom.equalTo(collectionViewBackgroundView.snp.top).offset(-30)
             $0.height.equalTo(33)
+        }
+        
+        bannerCountLabel.snp.makeConstraints {
+            $0.bottom.equalTo(welcomeTitleLabel.snp.bottom)
+            $0.trailing.equalToSuperview().offset(-16)
+            $0.width.greaterThanOrEqualTo(48)
+            $0.height.equalTo(20)
         }
 
         collectionViewBackgroundView.snp.makeConstraints {
