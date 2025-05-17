@@ -22,7 +22,7 @@ class BaseViewController: UIViewController {
     // MARK: - Configure UI
 
     func configure() {
-        view.backgroundColor = .bgWhite
+        view.backgroundColor = .white
     }
 
     // MARK: - Layout
