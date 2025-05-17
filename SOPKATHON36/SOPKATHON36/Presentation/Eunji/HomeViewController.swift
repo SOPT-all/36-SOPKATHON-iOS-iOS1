@@ -51,6 +51,15 @@ final class HomeViewController: UIViewController {
         $0.configuration = config
         $0.sizeToFit()
     }
+    
+    private let placeCollectionView: PlaceCollectionView = {
+        let flowLayout = UICollectionViewFlowLayout()
+        flowLayout.scrollDirection = .horizontal
+        flowLayout.itemSize = .init(width: 180, height: 239)
+        flowLayout.minimumLineSpacing = 8
+        let collectionView = PlaceCollectionView(frame: .zero, collectionViewLayout: flowLayout)
+        return collectionView
+    }()
 
 
     
@@ -85,7 +94,8 @@ extension HomeViewController {
         
         [recommendTitleLabel,
          recommendSubTitleLabel,
-         showMoreButton
+         showMoreButton,
+         placeCollectionView
         ].forEach {
             collectionViewBackgroundView.addSubview($0)
         }
@@ -116,6 +126,12 @@ extension HomeViewController {
             $0.top.equalTo(recommendTitleLabel.snp.top)
             $0.width.greaterThanOrEqualTo(55)
             $0.height.equalTo(15)
+        }
+        
+        placeCollectionView.snp.makeConstraints {
+            $0.horizontalEdges.equalToSuperview().inset(16)
+            $0.top.equalTo(recommendSubTitleLabel.snp.bottom).offset(20)
+            $0.height.equalTo(239)
         }
     }
 }
