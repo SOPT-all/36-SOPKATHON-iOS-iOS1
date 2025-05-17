@@ -46,16 +46,40 @@ final class PlaceCollectionViewCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - Bind
     func dataBind(_ itemData: PlaceModel, itemRow: Int) {
-//        placeImageView.image = itemData.placeImage
-//        placeNameLabel.text = itemData.placeName
-//        placeDetailLabel.text = itemData.placeDetail
+        if let url = URL(string: itemData.placeImage) {
+            let processor = DownsamplingImageProcessor(size: placeImageView.bounds.size)
+            let options: KingfisherOptionsInfo = [
+                .processor(processor),
+                .scaleFactor(UIScreen.main.scale),
+                .transition(.fade(0.3)),
+                .cacheOriginalImage
+            ]
+            
+            placeImageView.kf.setImage(
+                with: url,
+                placeholder: UIImage(named: "placeholderImage"),
+                options: options,
+                completionHandler: { result in
+                    switch result {
+                    case .success:
+                        print("이미지 로딩 성공")
+                    case .failure(let error):
+                        print("이미지 로딩 실패: \(error.localizedDescription)")
+                    }
+                }
+            )
+        }
+        
+        placeNameLabel.text = itemData.placeName
+        placeDetailLabel.text = itemData.placeDetail
         self.itemRow = itemRow
     }
-    
-    // KINGFIsher 함수 저걸 써
-    
-    // MARK: UI Settings
+}
+
+// MARK: UI Settings
+extension PlaceCollectionViewCell {
     private func setUpLayOuts() {
         [placeImageView, backgroundColorView].forEach {
             self.addSubview($0)
@@ -92,5 +116,4 @@ final class PlaceCollectionViewCell: UICollectionViewCell {
             $0.bottom.equalToSuperview().offset(-10)
         }
     }
-   
 }
