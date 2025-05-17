@@ -15,7 +15,7 @@ final class ProfileTextFieldView: UIView {
         $0.font = UIFont.body2
         $0.textColor = .black
         $0.borderStyle = .none
-        $0.clearButtonMode = .whileEditing
+        $0.clearButtonMode = .never
         $0.isUserInteractionEnabled = true
     }
     
