@@ -47,9 +47,8 @@ final class MatchingViewController: BaseViewController {
             do {
                 guard let id = recommendUser?.id else { return }
                 let phone = try await matchingService.matching(id: id)
-                print("전화번호 : \(phone)")
-//                let viewController = MatchSuccessViewController(phone: phone)
-                let viewController = MatchSuccessViewController()
+                
+                let viewController = MatchSuccessViewController(phoneNumber: phone)
                 navigationController?.pushViewController(viewController, animated: true)
             } catch {
                 print("실패 !!!!! ")

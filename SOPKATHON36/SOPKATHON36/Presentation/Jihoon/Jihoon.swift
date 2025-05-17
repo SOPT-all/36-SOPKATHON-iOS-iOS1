@@ -4,6 +4,18 @@ import Then
 
 class MatchSuccessViewController: BaseViewController {
     
+    private let phoneNumber: String
+    
+    init(phoneNumber: String) {
+        self.phoneNumber = phoneNumber
+        
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     private let backgroundImageView = UIImageView().then {
         $0.image = UIImage(named: "bgSuccess")
         $0.contentMode = .scaleAspectFill
@@ -153,12 +165,12 @@ class MatchSuccessViewController: BaseViewController {
     }
     
     @objc private func copyPhoneButtonTapped() {
-        UIPasteboard.general.string = "010-XXXX-XXXX"
+        UIPasteboard.general.string = self.phoneNumber
         
         showAlert(title: "복사 완료", message: "안심번호가 클립보드에 복사되었습니다.")
     }
 }
 
 #Preview {
-    MatchSuccessViewController()
+    MatchSuccessViewController(phoneNumber: "010-XXXX-XXXX")
 }
