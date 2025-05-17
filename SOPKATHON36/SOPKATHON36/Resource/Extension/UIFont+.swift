@@ -21,21 +21,21 @@ extension UIFont {
     }
     
     // MARK: - Display
-    static let display1_r_34 = UIFont.pretendard(weight: .regular, size: 34)
-    static let display2_r_28 = UIFont.pretendard(weight: .regular, size: 28)
+    static let display1 = UIFont.pretendard(weight: .regular, size: 34)
+    static let display2 = UIFont.pretendard(weight: .regular, size: 28)
     
     // MARK: - Head
-    static let head1_sb_22 = UIFont.pretendard(weight: .semiBold, size: 22)
-    static let head2_m_20 = UIFont.pretendard(weight: .medium, size: 20)
-    static let head3_m_18 = UIFont.pretendard(weight: .medium, size: 18)
+    static let head1 = UIFont.pretendard(weight: .semiBold, size: 22)
+    static let head2 = UIFont.pretendard(weight: .medium, size: 20)
+    static let head3 = UIFont.pretendard(weight: .medium, size: 18)
         
     // MARK: - Body
-    static let body1_r_17 = UIFont.pretendard(weight: .regular, size: 17)
-    static let body2_r_15 = UIFont.pretendard(weight: .regular, size: 15)
+    static let body1 = UIFont.pretendard(weight: .regular, size: 17)
+    static let body2 = UIFont.pretendard(weight: .regular, size: 15)
         
     // MARK: - Caption
-    static let caption1_r_13 = UIFont.pretendard(weight: .regular, size: 13)
+    static let caption1 = UIFont.pretendard(weight: .regular, size: 13)
     
     // MARK: - Memo
-    static let micro1_r_11 = UIFont.pretendard(weight: .regular, size: 11)
+    static let memo = UIFont.pretendard(weight: .regular, size: 11)
 }
