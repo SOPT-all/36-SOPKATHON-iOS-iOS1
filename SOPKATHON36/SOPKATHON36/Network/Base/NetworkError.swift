@@ -5,8 +5,6 @@
 //  Created by 최주리 on 5/17/25.
 //
 
-
-
 import Foundation
 
 enum NetworkError: Error {
