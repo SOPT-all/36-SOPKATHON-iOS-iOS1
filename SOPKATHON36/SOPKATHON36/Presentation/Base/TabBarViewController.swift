@@ -10,8 +10,8 @@ import UIKit
 final class TabBarViewController: UITabBarController, UITabBarControllerDelegate {
     
     private enum TabIndex: Int {
-        case home
         case matching
+        case home
         case myPage
     }
 
