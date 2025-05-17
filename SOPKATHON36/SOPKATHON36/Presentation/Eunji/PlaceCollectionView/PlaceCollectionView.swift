@@ -9,8 +9,8 @@ import UIKit
 
 final class PlaceCollectionView: UICollectionView, UICollectionViewDataSource {
     
-    private var itemData = PlaceModel.dummy()
-    
+    private var itemData: [HobbyModel] = []
+
     override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
         super.init(frame: frame, collectionViewLayout: layout)
         self.backgroundColor = .clear
@@ -26,12 +26,19 @@ final class PlaceCollectionView: UICollectionView, UICollectionViewDataSource {
         register(PlaceCollectionViewCell.self, forCellWithReuseIdentifier: PlaceCollectionViewCell.identifier)
     }
     
+    func update(_ data: [HobbyModel]) {
+        self.itemData = data
+        self.reloadData()
+    }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return itemData.count
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PlaceCollectionViewCell.identifier, for: indexPath) as? PlaceCollectionViewCell else { return UICollectionViewCell() }
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PlaceCollectionViewCell.identifier, for: indexPath) as? PlaceCollectionViewCell else {
+            return UICollectionViewCell()
+        }
         cell.dataBind(itemData[indexPath.item], itemRow: indexPath.item)
         return cell
     }
