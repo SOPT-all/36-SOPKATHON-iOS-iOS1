@@ -94,4 +94,10 @@ ex) style: #1 UI 구현
 
 
 # 📸 iOS 팀원 사진
+### Before
 ![솝커톤36](https://github.com/user-attachments/assets/427f1d2a-231e-4643-9d18-344f387e332a)
+
+### After
+![사진 2025  5  18  오전 8 04 #2](https://github.com/user-attachments/assets/9fb8a754-3853-4e20-8f10-bac3394b0273)
+
+
