@@ -16,6 +16,22 @@ final class HomeViewController: UIViewController {
 
     
     // MARK: - UI Components
+    private let collectionViewBackgroundView = UIView().then {
+        $0.backgroundColor = .systemGray4
+    }
+    
+    private let recommendTitleLabel = UILabel().then {
+        $0.text = "등산을 좋아하시네요!"
+        $0.font = .head2
+        $0.textColor = .black
+    }
+    
+    private let recommendSubTitleLabel = UILabel().then {
+        $0.text = "경상북도에서 등산으로 유명한 장소를 추천드릴게요"
+        $0.font = .caption1
+        $0.textColor = .black
+    }
+    
 
     
     // MARK: Life Cycle
@@ -42,13 +58,35 @@ extension HomeViewController {
     private func setUpLayOuts() {
         view.backgroundColor = .white
 
-        [].forEach {
+        [collectionViewBackgroundView
+        ].forEach {
             view.addSubview($0)
+        }
+        
+        [recommendTitleLabel,
+         recommendSubTitleLabel].forEach {
+            collectionViewBackgroundView.addSubview($0)
         }
 
     }
 
     private func setUpConstraints() {
-
+        collectionViewBackgroundView.snp.makeConstraints {
+            $0.horizontalEdges.equalToSuperview()
+            $0.bottom.equalToSuperview()
+            $0.height.equalTo(379)
+        }
+        
+        recommendTitleLabel.snp.makeConstraints {
+            $0.top.equalToSuperview().offset(36)
+            $0.leading.equalToSuperview().offset(16)
+            $0.height.equalTo(30)
+        }
+        
+        recommendSubTitleLabel.snp.makeConstraints {
+            $0.top.equalTo(recommendTitleLabel.snp.bottom).offset(-2)
+            $0.leading.equalTo(recommendTitleLabel.snp.leading)
+            $0.height.equalTo(20)
+        }
     }
 }
