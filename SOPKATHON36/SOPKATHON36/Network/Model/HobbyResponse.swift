@@ -42,7 +42,7 @@ extension HobbyResponse.ContentData {
 }
 
 extension HobbyResponse {
-    func toEntity() -> [PlaceModel] {
+    func toEntity() -> [HobbyModel] {
         return data.contents.map {
             .init(
                 placeImage: $0.image,

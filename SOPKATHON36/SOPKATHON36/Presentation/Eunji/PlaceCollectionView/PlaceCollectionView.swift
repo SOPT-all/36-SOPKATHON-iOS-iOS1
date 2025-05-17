@@ -9,7 +9,7 @@ import UIKit
 
 final class PlaceCollectionView: UICollectionView, UICollectionViewDataSource {
     
-    private var itemData = PlaceModel.dummy()
+    private var itemData = HobbyModel.dummy()
     
     override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
         super.init(frame: frame, collectionViewLayout: layout)

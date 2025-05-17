@@ -47,7 +47,7 @@ final class PlaceCollectionViewCell: UICollectionViewCell {
     }
     
     // MARK: - Bind
-    func dataBind(_ itemData: PlaceModel, itemRow: Int) {
+    func dataBind(_ itemData: HobbyModel, itemRow: Int) {
         if let url = URL(string: itemData.placeImage) {
             let processor = DownsamplingImageProcessor(size: placeImageView.bounds.size)
             let options: KingfisherOptionsInfo = [
