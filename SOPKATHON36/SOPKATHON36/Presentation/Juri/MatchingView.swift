@@ -43,7 +43,7 @@ final class MatchingView: UIView {
         }
         
         profileImage.do {
-            $0.image = .matching
+//            $0.image = .matching
             $0.clipsToBounds = true
             $0.layer.cornerRadius = $0.layer.bounds.width / 2
         }

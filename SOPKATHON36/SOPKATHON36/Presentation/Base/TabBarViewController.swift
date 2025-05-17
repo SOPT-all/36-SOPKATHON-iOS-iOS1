@@ -25,8 +25,8 @@ final class TabBarViewController: UITabBarController, UITabBarControllerDelegate
 
     private func configureController() {
         let matchingViewController = tabBarNavigationController(
-            unselectedImage:.matching,
-            selectedImage: .matching,
+            unselectedImage:.userMatching,
+            selectedImage: .userMatching,
             rootViewController: MatchingViewController(),
             title: "친구 매칭"
         )
@@ -38,11 +38,11 @@ final class TabBarViewController: UITabBarController, UITabBarControllerDelegate
             title: "홈"
         )
 
-        let myPageViewController = placeholderTab(title: "마이 페이지", imageName: "myPage")
+        let myPageViewController = placeholderTab(title: "마이 페이지", imageName: "mypage")
 
         viewControllers = [matchingViewController, homeViewController, myPageViewController]
         selectedIndex = 1
-        tabBar.tintColor = .black
+        tabBar.tintColor = .primaryLight
     }
     
     func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
