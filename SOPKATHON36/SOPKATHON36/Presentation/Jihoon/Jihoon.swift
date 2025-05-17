@@ -1,3 +1,10 @@
+//
+//  MatchSuccessViewController.swift
+//  SOPKATHON36
+//
+//  Created by 최주리 on 5/16/25.
+//
+
 import UIKit
 import SnapKit
 import Then
@@ -10,6 +17,7 @@ class MatchSuccessViewController: BaseViewController {
         self.phoneNumber = phoneNumber
         
         super.init(nibName: nil, bundle: nil)
+        hidesBottomBarWhenPushed = true
     }
     
     required init?(coder: NSCoder) {
@@ -19,11 +27,6 @@ class MatchSuccessViewController: BaseViewController {
     private let backgroundImageView = UIImageView().then {
         $0.image = UIImage(named: "bgSuccess")
         $0.contentMode = .scaleAspectFill
-    }
-    
-    private let backButton = UIButton().then {
-        $0.setImage(UIImage(named: "Clear"), for: .normal)
-        $0.contentMode = .scaleAspectFit
     }
     
     private let titleLabel = UILabel().then {
@@ -74,7 +77,43 @@ class MatchSuccessViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupActions()
-        navigationController?.setNavigationBarHidden(true, animated: false)
+        setupNavigationBar()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tabBarController?.tabBar.isHidden = true
+        navigationController?.setNavigationBarHidden(false, animated: false)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        tabBarController?.tabBar.isHidden = false
+    }
+    
+    private func setupNavigationBar() {
+        // 네비게이션 바 설정
+        let appearance = UINavigationBarAppearance()
+        appearance.configureWithTransparentBackground()
+        appearance.backgroundColor = .clear
+        appearance.shadowColor = .clear
+        
+        navigationController?.navigationBar.standardAppearance = appearance
+        navigationController?.navigationBar.scrollEdgeAppearance = appearance
+        navigationController?.navigationBar.compactAppearance = appearance
+        
+        // 기본 back 버튼 숨기기
+        navigationItem.hidesBackButton = true
+        
+        // 좌측에 닫기 버튼 추가
+        let closeButton = UIBarButtonItem(
+            image: UIImage(named: "Clear"),
+            style: .plain,
+            target: self,
+            action: #selector(closeButtonTapped)
+        )
+        closeButton.tintColor = .black
+        navigationItem.leftBarButtonItem = closeButton
     }
     
     override func configure() {
@@ -83,7 +122,6 @@ class MatchSuccessViewController: BaseViewController {
         view.addSubview(backgroundImageView)
         
         addSubviews(
-            backButton,
             titleLabel,
             mainProfileImageView,
             smallProfileImageView,
@@ -99,14 +137,8 @@ class MatchSuccessViewController: BaseViewController {
             $0.edges.equalToSuperview()
         }
         
-        backButton.snp.makeConstraints {
-            $0.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(16)
-            $0.leading.equalToSuperview().offset(16)
-            $0.width.height.equalTo(30)
-        }
-        
         titleLabel.snp.makeConstraints {
-            $0.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(60)
+            $0.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(20)
             $0.centerX.equalToSuperview()
         }
         
@@ -148,7 +180,6 @@ class MatchSuccessViewController: BaseViewController {
     }
     
     private func setupActions() {
-        backButton.addTarget(self, action: #selector(backButtonTapped), for: .touchUpInside)
         copyPhoneButton.addTarget(self, action: #selector(copyPhoneButtonTapped), for: .touchUpInside)
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(laterLabelTapped))
@@ -156,7 +187,7 @@ class MatchSuccessViewController: BaseViewController {
         laterLabel.addGestureRecognizer(tapGesture)
     }
     
-    @objc private func backButtonTapped() {
+    @objc private func closeButtonTapped() {
         navigationController?.popViewController(animated: true)
     }
     
@@ -167,7 +198,34 @@ class MatchSuccessViewController: BaseViewController {
     @objc private func copyPhoneButtonTapped() {
         UIPasteboard.general.string = self.phoneNumber
         
-        showAlert(title: "복사 완료", message: "안심번호가 클립보드에 복사되었습니다.")
+        let alertController = UIAlertController(
+            title: "안심번호",
+            message: nil,
+            preferredStyle: .actionSheet
+        )
+        
+        let phoneNumberAction = UIAlertAction(title: phoneNumber, style: .default) { _ in
+            self.makePhoneCall(phoneNumber: self.phoneNumber)
+        }
+        alertController.addAction(phoneNumberAction)
+        
+        let cancelAction = UIAlertAction(title: "취소", style: .cancel, handler: nil)
+        alertController.addAction(cancelAction)
+        
+        if let popoverController = alertController.popoverPresentationController {
+            popoverController.sourceView = copyPhoneButton
+            popoverController.sourceRect = copyPhoneButton.bounds
+        }
+        
+        present(alertController, animated: true, completion: nil)
+    }
+    
+    private func makePhoneCall(phoneNumber: String) {
+        if let phoneURL = URL(string: "tel://\(phoneNumber.replacingOccurrences(of: "-", with: ""))") {
+            if UIApplication.shared.canOpenURL(phoneURL) {
+                UIApplication.shared.open(phoneURL, options: [:], completionHandler: nil)
+            }
+        }
     }
 }
 
