@@ -35,30 +35,34 @@ final class MatchingCardView: UIView {
     
     private func setDivider() -> UIView {
         let view = UIView()
-        view.backgroundColor = .black
+        view.backgroundColor = .gray700
         return UIView()
     }
     
     private func setStyle() {
-        backgroundColor = .gray
+        backgroundColor = .white
         
         divider1 = setDivider()
         divider2 = setDivider()
         
         nameLabel.do {
             $0.textColor = .black
+            $0.font = .head1
         }
         
         locationLabel.do {
-            $0.textColor = .black
+            $0.textColor = .gray700
+            $0.font = .caption1
         }
         
         distanceLabel.do {
-            $0.textColor = .black
+            $0.textColor = .gray700
+            $0.font = .caption1
         }
         
         ageLabel.do {
-            $0.textColor = .black
+            $0.textColor = .gray700
+            $0.font = .caption1
         }
         
         chipView.do {
@@ -66,12 +70,13 @@ final class MatchingCardView: UIView {
         }
         
         informationBackgroundView.do {
-            $0.backgroundColor = .white
+            $0.backgroundColor = .gray100
             $0.roundCorners(cornerRadius: 8)
         }
         
         informationLabel.do {
             $0.textColor = .black
+            $0.font = .body2
         }
     }
     
@@ -128,17 +133,17 @@ final class MatchingCardView: UIView {
         chipView.snp.makeConstraints {
             $0.top.equalTo(locationLabel.snp.bottom).offset(14)
             $0.horizontalEdges.equalToSuperview().inset(18)
-            $0.height.equalTo(28)
+            $0.height.equalTo(32)
         }
         
         informationBackgroundView.snp.makeConstraints {
-            $0.top.equalToSuperview().inset(130)
+            $0.top.equalTo(chipView.snp.bottom).offset(14)
             $0.horizontalEdges.equalToSuperview().inset(18)
-            $0.height.equalTo(62)
+            $0.height.equalTo(40)
         }
         
         informationLabel.snp.makeConstraints {
-            $0.top.equalToSuperview().inset(8)
+            $0.centerY.equalToSuperview()
             $0.horizontalEdges.equalToSuperview().inset(14)
         }
     }
@@ -150,4 +155,8 @@ final class MatchingCardView: UIView {
         self.ageLabel.text = "\(card.age)세"
         self.informationLabel.text = card.information
     }
+}
+
+#Preview {
+    MatchingView()
 }

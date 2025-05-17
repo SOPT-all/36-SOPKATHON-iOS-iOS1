@@ -26,7 +26,18 @@ final class MatchingChipView: UIView {
     
     private func setStyle() {
         self.backgroundColor = .white
-        self.roundCorners(cornerRadius: 20)
+        self.roundCorners(cornerRadius: 16)
+        self.layer.borderWidth = 1
+        self.layer.borderColor = UIColor.primaryLight.cgColor
+        
+        titleLabel.do {
+            $0.font = .caption1
+            $0.textColor = .primaryLight
+        }
+        
+        icon.do {
+            $0.image = .mingcuteMountain2Fill
+        }
     }
     
     private func setHierarchy() {
@@ -46,7 +57,6 @@ final class MatchingChipView: UIView {
     }
     
     func dataBind() {
-        icon.image = .home
         titleLabel.text = "등산"
     }
 }
