@@ -91,11 +91,11 @@ class MatchSuccessViewController: BaseViewController {
         mainProfileImageView.snp.makeConstraints {
             $0.top.equalTo(titleLabel.snp.bottom).offset(40)
             $0.centerX.equalToSuperview()
-            $0.width.height.equalTo(200)
+            $0.width.height.equalTo(120)
         }
         
         descriptionLabel.snp.makeConstraints {
-            $0.top.equalTo(mainProfileImageView.snp.bottom).offset(62)
+            $0.top.equalTo(mainProfileImageView.snp.bottom).offset(40)
             $0.centerX.equalToSuperview()
         }
         
@@ -105,7 +105,7 @@ class MatchSuccessViewController: BaseViewController {
         }
         
         copyPhoneButton.snp.makeConstraints {
-            $0.top.equalTo(laterLabel.snp.bottom).offset(140)
+            $0.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom).offset(-30)
             $0.centerX.equalToSuperview()
             $0.leading.trailing.equalToSuperview().inset(20)
             $0.height.equalTo(47)
@@ -116,7 +116,6 @@ class MatchSuccessViewController: BaseViewController {
     
     private func setupActions() {
         backButton.addTarget(self, action: #selector(backButtonTapped), for: .touchUpInside)
-        copyPhoneButton.addTarget(self, action: #selector(copyPhoneButtonTapped), for: .touchUpInside)
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(laterLabelTapped))
         laterLabel.isUserInteractionEnabled = true
@@ -127,12 +126,6 @@ class MatchSuccessViewController: BaseViewController {
     
     @objc private func backButtonTapped() {
         navigationController?.popViewController(animated: true)
-    }
-    
-    @objc private func copyPhoneButtonTapped() {
-        UIPasteboard.general.string = "010-1234-5678"
-        
-        showAlert(title: "복사 완료", message: "안심번호가 복사되었습니다.")
     }
     
     @objc private func laterLabelTapped() {
