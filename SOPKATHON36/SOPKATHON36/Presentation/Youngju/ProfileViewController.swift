@@ -52,12 +52,6 @@ final class ProfileViewController: BaseViewController {
         $0.font = .body1
     }
     
-    private let personalityDescriptionLabel = UILabel().then {
-        $0.text = "한 줄로 본인의 성격을 표현해 주세요."
-        $0.textColor = .gray600
-        $0.font = .caption1
-    }
-    
     private let personalityField = ProfileTextFieldView()
     
     private let ageLabel = UILabel().then {
@@ -78,12 +72,6 @@ final class ProfileViewController: BaseViewController {
         $0.text = "전화번호"
         $0.textColor = .gray900
         $0.font = .body1
-    }
-    
-    private let phoneDescriptionLabel = UILabel().then {
-        $0.text = "전화번호를 입력해주세요."
-        $0.textColor = .gray600
-        $0.font = .caption1
     }
     
     private let phoneField = ProfileTextFieldView()
@@ -139,7 +127,7 @@ final class ProfileViewController: BaseViewController {
     private let hobbyDescriptionLabel = UILabel().then {
         $0.text = "취미 기반으로 친구가 추천돼요. 가장 좋아하는 취미 1개만 선택해 주세요."
         $0.textColor = .gray600
-        $0.font = .caption1
+        $0.font = .micro
         $0.numberOfLines = 0
     }
     
@@ -211,7 +199,7 @@ final class ProfileViewController: BaseViewController {
     
     private func setupInitialState() {
         personalityField.textField.placeholder = "한 줄로 본인의 성격을 알려주세요"
-        phoneField.textField.placeholder = "01012345678"
+        phoneField.textField.placeholder = "전화번호를 입력해주세요."
         ageField.textField.placeholder = "00"
         
         ageField.textField.keyboardType = .numberPad
@@ -249,9 +237,9 @@ final class ProfileViewController: BaseViewController {
         contentView.addSubviews(
             logoImageView, welcomeLabel, profileImageView,
             nameView,
-            personalityLabel, personalityDescriptionLabel, personalityField,
+            personalityLabel, personalityField,
             ageLabel, ageContainer,
-            phoneLabel, phoneDescriptionLabel, phoneField,
+            phoneLabel, phoneField,
             genderLabel, genderDescriptionLabel, genderButtonStack,
             residenceLabel, residenceDropdown,
             hobbyLabel, hobbyDescriptionLabel, hobbyDropdown,
@@ -301,18 +289,13 @@ final class ProfileViewController: BaseViewController {
             $0.leading.equalToSuperview().offset(20)
         }
         
-        personalityDescriptionLabel.snp.makeConstraints {
-            $0.top.equalTo(personalityLabel.snp.bottom).offset(5)
-            $0.leading.trailing.equalToSuperview().inset(20)
-        }
-        
         personalityField.snp.makeConstraints {
-            $0.top.equalTo(personalityDescriptionLabel.snp.bottom).offset(10)
+            $0.top.equalTo(personalityLabel.snp.bottom).offset(10)
             $0.leading.trailing.equalToSuperview().inset(20)
         }
         
         ageLabel.snp.makeConstraints {
-            $0.top.equalTo(personalityField.snp.bottom).offset(30)
+            $0.top.equalTo(personalityField.snp.bottom).offset(50)
             $0.leading.equalToSuperview().offset(20)
         }
         
@@ -338,18 +321,13 @@ final class ProfileViewController: BaseViewController {
             $0.leading.equalToSuperview().offset(20)
         }
         
-        phoneDescriptionLabel.snp.makeConstraints {
-            $0.top.equalTo(phoneLabel.snp.bottom).offset(5)
-            $0.leading.trailing.equalToSuperview().inset(20)
-        }
-        
         phoneField.snp.makeConstraints {
-            $0.top.equalTo(phoneDescriptionLabel.snp.bottom).offset(10)
+            $0.top.equalTo(phoneLabel.snp.bottom).offset(10)
             $0.leading.trailing.equalToSuperview().inset(20)
         }
         
         genderLabel.snp.makeConstraints {
-            $0.top.equalTo(phoneField.snp.bottom).offset(30)
+            $0.top.equalTo(phoneField.snp.bottom).offset(60)
             $0.leading.equalToSuperview().offset(20)
         }
         

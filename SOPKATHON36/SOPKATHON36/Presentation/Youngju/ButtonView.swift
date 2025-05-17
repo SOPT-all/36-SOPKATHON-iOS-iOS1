@@ -22,7 +22,8 @@ final class ButtonView: UIView {
     private let maleButton = UIButton().then {
         $0.setTitle("남자", for: .normal)
         $0.applyProfileStyle(.subButton)
-        $0.roundCorners(cornerRadius: 14)
+        $0.heightAnchor.constraint(equalToConstant: 35).isActive = true
+        $0.roundCorners(cornerRadius: 17)
         $0.layer.borderWidth = 1
         $0.layer.borderColor = UIColor.gray400.cgColor
     }
@@ -30,7 +31,8 @@ final class ButtonView: UIView {
     private let femaleButton = UIButton().then {
         $0.setTitle("여자", for: .normal)
         $0.applyProfileStyle(.subButton)
-        $0.roundCorners(cornerRadius: 14)
+        $0.heightAnchor.constraint(equalToConstant: 35).isActive = true
+        $0.roundCorners(cornerRadius: 17)
         $0.layer.borderWidth = 1
         $0.layer.borderColor = UIColor.gray400.cgColor
     }
