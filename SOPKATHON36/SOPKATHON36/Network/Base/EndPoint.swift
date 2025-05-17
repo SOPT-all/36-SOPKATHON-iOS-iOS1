@@ -29,9 +29,9 @@ enum EndPoint {
         case .recommend:
             "/api/v1/profile/recommend"
         case .matching(let id):
-            "api/v1/matching/\(id)"
+            "/api/v1/matching/\(id)"
         case .fetchContents:
-            "api/v1/contents?hobby=등산"
+            "/api/v1/contents?hobby=등산"
         }
     }
     

@@ -12,15 +12,14 @@ import Then
 
 final class MatchingView: UIView {
     
-    // 임시
-    let card = CardEntity.mock()
-    
     var count = 1
     
-    private let titleLabel = UILabel()
-    private let profileImage = UIImageView()
+    private let logoImage = UIImageView()
     
-    private let cardView = MatchingCardView()
+    private let titleLabel = UILabel()
+    private let backgroundView = UIImageView()
+    
+    let cardView = MatchingCardView()
     
     let retryButton = UIButton()
     let matchingButton = UIButton()
@@ -38,37 +37,69 @@ final class MatchingView: UIView {
     }
     
     private func setStyle() {
+        logoImage.do {
+            // TODO: 로고 이미지로 바꾸기
+            $0.image = .home
+        }
         titleLabel.do {
             $0.text = "오늘의 친구 추천이 도착했어요"
+            $0.font = .head2
         }
         
-        profileImage.do {
-//            $0.image = .matching
-            $0.clipsToBounds = true
-            $0.layer.cornerRadius = $0.layer.bounds.width / 2
+        backgroundView.do {
+            $0.image = .matchingBackground
         }
+        
         cardView.do {
-            $0.dataBind(card)
             $0.roundCorners(cornerRadius: 8)
+//            $0.layer.addShadow(
+//                color: .gray300,
+//                alpha: <#T##Float#>,
+//                x: <#T##CGFloat#>,
+//                y: <#T##CGFloat#>,
+//                blur: <#T##CGFloat#>,
+//                spread: <#T##CGFloat#>
+//            )
         }
         
         retryButton.do {
-            $0.setTitle("다시 추천받기 \(count)/5", for: .normal)
-            $0.setTitleColor(.black, for: .normal)
-            $0.backgroundColor = .gray
+            var config = UIButton.Configuration.plain()
+            let title = "다시 추천받기 \(count)/5"
+
+            config.attributedTitle = AttributedString(title, attributes: AttributeContainer([
+                .font: UIFont.body3,
+                .foregroundColor: UIColor.primaryLight
+            ]))
+            
+            config.background.backgroundColor = .white
+
+            $0.configuration = config
+            $0.layer.borderWidth = 1
+            $0.layer.borderColor = UIColor.primaryLight.cgColor
+            $0.roundCorners(cornerRadius: 8)
         }
         
         matchingButton.do {
-            $0.setTitle("매칭 수락하기", for: .normal)
-            $0.setTitleColor(.white, for: .normal)
-            $0.backgroundColor = .black
+            var config = UIButton.Configuration.plain()
+            let title = "매칭 수락하기"
+
+            config.attributedTitle = AttributedString(title, attributes: AttributeContainer([
+                .font: UIFont.body3,
+                .foregroundColor: UIColor.white
+            ]))
+            
+            config.background.backgroundColor = .primaryLight
+
+            $0.configuration = config
+            $0.roundCorners(cornerRadius: 8)
         }
     }
     
     private func setHierarchy() {
         self.addSubviews(
+            backgroundView,
+            logoImage,
             titleLabel,
-            profileImage,
             cardView,
             retryButton,
             matchingButton
@@ -76,32 +107,35 @@ final class MatchingView: UIView {
     }
     
     private func setLayout() {
+        backgroundView.snp.makeConstraints {
+            $0.edges.equalToSuperview()
+        }
+        
+        logoImage.snp.makeConstraints {
+            $0.top.equalToSuperview().inset(57)
+            $0.leading.equalToSuperview().inset(16)
+        }
+        
         titleLabel.snp.makeConstraints {
             $0.top.equalToSuperview().inset(110)
             $0.leading.equalToSuperview().inset(16)
         }
         
-        profileImage.snp.makeConstraints {
-            $0.top.equalToSuperview().inset(162)
-            $0.centerX.equalToSuperview()
-            $0.size.equalTo(304)
-        }
-        
         cardView.snp.makeConstraints {
-            $0.top.equalToSuperview().inset(427)
-            $0.horizontalEdges.equalToSuperview().inset(16)
-            $0.height.equalTo(216)
+            $0.top.equalToSuperview().inset(436)
+            $0.horizontalEdges.equalToSuperview().inset(17)
+            $0.height.equalTo(201)
         }
         
         retryButton.snp.makeConstraints {
-            $0.top.equalTo(cardView.snp.bottom).offset(14)
+            $0.top.equalTo(cardView.snp.bottom).offset(20)
             $0.leading.equalToSuperview().inset(17)
             $0.width.equalTo(170)
             $0.height.equalTo(47)
         }
         
         matchingButton.snp.makeConstraints {
-            $0.top.equalTo(cardView.snp.bottom).offset(14)
+            $0.top.equalTo(cardView.snp.bottom).offset(20)
             $0.leading.equalTo(retryButton.snp.trailing).offset(3)
             $0.width.equalTo(170)
             $0.height.equalTo(47)
@@ -109,6 +143,20 @@ final class MatchingView: UIView {
     }
     
     func changeCount() {
-        retryButton.setTitle("다시 추천받기 \(count)/5", for: .normal)
+        setButtonStyle()
+    }
+    
+    private func setButtonStyle() {
+        var config = UIButton.Configuration.plain()
+        let title = "다시 추천받기 \(count)/5"
+
+        config.attributedTitle = AttributedString(title, attributes: AttributeContainer([
+            .font: UIFont.body3,
+            .foregroundColor: UIColor.primaryLight
+        ]))
+        
+        config.background.backgroundColor = .white
+
+        retryButton.configuration = config
     }
 }
