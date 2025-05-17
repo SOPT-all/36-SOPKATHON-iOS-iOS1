@@ -6,6 +6,12 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		D80B6BFC2DD827AA008A2CC9 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = D80B6BFB2DD827AA008A2CC9 /* SnapKit */; };
+		D80B6BFF2DD8287E008A2CC9 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = D80B6BFE2DD8287E008A2CC9 /* Then */; };
+		D80B6C022DD828EC008A2CC9 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = D80B6C012DD828EC008A2CC9 /* Kingfisher */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		CB763BBA2DD64FCD0073DFCD /* SOPKATHON36.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SOPKATHON36.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -36,6 +42,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D80B6C022DD828EC008A2CC9 /* Kingfisher in Frameworks */,
+				D80B6BFC2DD827AA008A2CC9 /* SnapKit in Frameworks */,
+				D80B6BFF2DD8287E008A2CC9 /* Then in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +87,9 @@
 			);
 			name = SOPKATHON36;
 			packageProductDependencies = (
+				D80B6BFB2DD827AA008A2CC9 /* SnapKit */,
+				D80B6BFE2DD8287E008A2CC9 /* Then */,
+				D80B6C012DD828EC008A2CC9 /* Kingfisher */,
 			);
 			productName = SOPKATHON36;
 			productReference = CB763BBA2DD64FCD0073DFCD /* SOPKATHON36.app */;
@@ -107,6 +119,11 @@
 			);
 			mainGroup = CB763BB12DD64FCD0073DFCD;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				D80B6BFA2DD827AA008A2CC9 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				D80B6BFD2DD8287E008A2CC9 /* XCRemoteSwiftPackageReference "Then" */,
+				D80B6C002DD828EC008A2CC9 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = CB763BBB2DD64FCD0073DFCD /* Products */;
 			projectDirPath = "";
@@ -145,12 +162,11 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = L9J3VF6GK2;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SOPKATHON36/Resource/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
@@ -178,12 +194,11 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = L9J3VF6GK2;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SOPKATHON36/Resource/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
@@ -345,6 +360,51 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		D80B6BFA2DD827AA008A2CC9 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.7.1;
+			};
+		};
+		D80B6BFD2DD8287E008A2CC9 /* XCRemoteSwiftPackageReference "Then" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/devxoul/Then";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
+		D80B6C002DD828EC008A2CC9 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 8.3.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		D80B6BFB2DD827AA008A2CC9 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D80B6BFA2DD827AA008A2CC9 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+		D80B6BFE2DD8287E008A2CC9 /* Then */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D80B6BFD2DD8287E008A2CC9 /* XCRemoteSwiftPackageReference "Then" */;
+			productName = Then;
+		};
+		D80B6C012DD828EC008A2CC9 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D80B6C002DD828EC008A2CC9 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = CB763BB22DD64FCD0073DFCD /* Project object */;
 }
