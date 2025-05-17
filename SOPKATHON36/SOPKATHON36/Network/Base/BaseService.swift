@@ -15,7 +15,8 @@ final class BaseService {
         endPoint: EndPoint,
         body: Encodable? = nil
     ) async throws -> Response {
-        guard let encodedURL = endPoint.url.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else {
+        let url = Config.baseURL + endPoint.url
+        guard let encodedURL = url.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else {
             throw NetworkError.urlError
         }
         guard let url = URL(string: encodedURL) else {
