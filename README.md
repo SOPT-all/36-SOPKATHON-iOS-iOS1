@@ -21,13 +21,10 @@
 
 # 👨‍💻 팀원 역할 분배
 
-**주리 →** 매칭 추천 카드
-
-**은지 →** 메인 화면 (콘텐츠 추천)
-
-**영주 →** 프로필 입력
-
-**지훈 →** alert 
+| <img src="https://avatars.githubusercontent.com/u/80569323?v=4" width="150" height="150"/> | <img src="https://avatars.githubusercontent.com/u/139556438?v=4" width="150" height="150"/> | <img src="https://avatars.githubusercontent.com/u/109647045?v=4" width="150" height="150"/> | <img src="https://avatars.githubusercontent.com/u/165630285?v=4" width="150" height="150"/> |
+| --- | --- | --- | --- |
+| **최주리**<br/>[@juri123123](https://github.com/juri123123) | 이은지<br/>[@oeunji](https://github.com/oeunji) | 이지훈<br/>[@hooni0918](https://github.com/hooni0918) | 선영주<br/>[@dudwntjs](https://github.com/dudwntjs) |
+| 매칭 추천 카드 | 메인 화면 (콘텐츠 추천) | alert  | 프로필 입력 |
 
 <br>
 
@@ -91,9 +88,4 @@ ex) style: #1 UI 구현
 
 
 # 📸 iOS 팀원 사진
-
-![솝커톤36.jpg](attachment:937aa652-a6ec-4d5c-b7eb-98b927fcc0c9:솝커톤36.jpg)
-
-| <img src="https://avatars.githubusercontent.com/u/80569323?v=4" width="150" height="150"/> | <img src="https://avatars.githubusercontent.com/u/139556438?v=4" width="150" height="150"/> | <img src="https://avatars.githubusercontent.com/u/109647045?v=4" width="150" height="150"/> | <img src="https://avatars.githubusercontent.com/u/165630285?v=4" width="150" height="150"/> |
-| --- | --- | --- | --- |
-| 최주리<br/>[@juri123123](https://github.com/juri123123) | 이은지<br/>[@oeunji](https://github.com/oeunji) | 이지훈<br/>[@hooni0918](https://github.com/hooni0918) | 선영주<br/>[@dudwntjs](https://github.com/dudwntjs) |
+![솝커톤36](https://github.com/user-attachments/assets/427f1d2a-231e-4643-9d18-344f387e332a)
