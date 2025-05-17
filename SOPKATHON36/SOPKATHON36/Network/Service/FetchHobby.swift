@@ -15,9 +15,8 @@ final class DefaultFetchHobby: FetchHobby {
     private let network = BaseService.shared
     
     func fetchHobby(data: String) async throws -> [HobbyModel] {
-        let url = EndPoint.fetchContents.url
         
-        let response: HobbyResponse = try await network.request(endPoint: .fetchContents)
+        let response: HobbyContentResponse = try await network.request(endPoint: .fetchContents)
 
         return response.toEntity()
     }

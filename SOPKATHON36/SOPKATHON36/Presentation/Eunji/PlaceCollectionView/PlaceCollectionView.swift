@@ -40,6 +40,16 @@ final class PlaceCollectionView: UICollectionView, UICollectionViewDataSource {
             return UICollectionViewCell()
         }
         cell.dataBind(itemData[indexPath.item], itemRow: indexPath.item)
+        cell.roundCorners(cornerRadius: 8)
+        setUpShadow()
         return cell
+    }
+    
+    private func setUpShadow() {
+        layer.shadowColor = UIColor.black.cgColor
+        layer.shadowOpacity = 0.1
+        layer.shadowOffset = CGSize(width: 0, height: 4)
+        layer.shadowRadius = 6
+        layer.masksToBounds = false
     }
 }

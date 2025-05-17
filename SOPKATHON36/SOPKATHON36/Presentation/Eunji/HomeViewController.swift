@@ -13,7 +13,7 @@ import Then
 final class HomeViewController: UIViewController {
     
     // MARK: - Properties
-    private let fetchHobbyService: FetchHobby = MockFetchHobbyService()
+    private let fetchHobbyService: FetchHobby = DefaultFetchHobby()
     private let bannerImageArray: [UIImage] = [
         .bannerMainVisual1,
         .bannerMainVisual2,
