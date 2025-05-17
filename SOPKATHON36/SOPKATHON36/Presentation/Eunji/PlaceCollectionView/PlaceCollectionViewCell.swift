@@ -36,7 +36,6 @@ final class PlaceCollectionViewCell: UICollectionViewCell {
         super.init(frame: frame)
         setUpLayOuts()
         setUpConstraints()
-        setUpShadow()
 
         self.layer.cornerRadius = 8
         contentView.layer.masksToBounds = true
@@ -110,12 +109,6 @@ extension PlaceCollectionViewCell {
         }
     }
     
-    private func setUpShadow() {
-        layer.shadowColor = UIColor.black.cgColor
-        layer.shadowOpacity = 0.1
-        layer.shadowOffset = CGSize(width: 0, height: 4)
-        layer.shadowRadius = 6
-        layer.masksToBounds = false
-    }
+
 
 }

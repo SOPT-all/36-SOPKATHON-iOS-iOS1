@@ -7,25 +7,11 @@
 
 import Foundation
 
-struct HobbyResponse: Decodable {
-    let statusCode: Int
-    let message: String
-    let data: ContentData
-
-    enum CodingKeys: String, CodingKey {
-        case statusCode = "status_code"
-        case message
-        case data
-    }
+struct HobbyContentResponse: Decodable {
+    let contents: [Content]
 }
 
-extension HobbyResponse {
-    struct ContentData: Decodable {
-        let contents: [Content]
-    }
-}
-
-extension HobbyResponse.ContentData {
+extension HobbyContentResponse {
     struct Content: Decodable {
         let contentID: Int
         let image: String
@@ -41,9 +27,9 @@ extension HobbyResponse.ContentData {
     }
 }
 
-extension HobbyResponse {
+extension HobbyContentResponse {
     func toEntity() -> [HobbyModel] {
-        return data.contents.map {
+        return contents.map {
             .init(
                 placeImage: $0.image,
                 placeName: $0.location,

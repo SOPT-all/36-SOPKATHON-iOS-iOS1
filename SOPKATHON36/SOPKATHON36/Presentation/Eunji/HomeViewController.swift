@@ -13,13 +13,19 @@ import Then
 final class HomeViewController: UIViewController {
     
     // MARK: - Properties
-    private let fetchHobbyService: FetchHobby = MockFetchHobbyService()
+    private let fetchHobbyService: FetchHobby = DefaultFetchHobby()
+    private let bannerImageArray: [UIImage] = [
+        .bannerMainVisual1,
+        .bannerMainVisual2,
+        .bannerMainVisual3
+    ]
 
+    private var currentBannerIndex = 0
+    private var bannerTimer: Timer?
+    
     // MARK: - UI Components
     private let logoImageView = UIImageView().then {
-        // TODO: - 영주 언니 머지 후 로고 교체 예정
-//        $0.image = .logo
-        $0.image = .home
+        $0.image = .logo
     }
 
     private let menuNavigationButton = UIButton().then {
@@ -28,6 +34,7 @@ final class HomeViewController: UIViewController {
     
     private let bannerImageView = UIImageView().then {
         $0.image = .bannerMainVisual1
+        $0.contentMode = .scaleAspectFill
     }
     
     private let recommendTitleLabel = UILabel().then {
@@ -83,11 +90,26 @@ final class HomeViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: true)
+        startBannerTimer()
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        stopBannerTimer()
     }
     
     // MARK: Function
-    private func setAddTarget() {
-        
+    private func startBannerTimer() {
+        bannerTimer = Timer.scheduledTimer(timeInterval: 2.0,
+                                           target: self,
+                                           selector: #selector(updateBannerImage),
+                                           userInfo: nil,
+                                           repeats: true)
+    }
+
+    private func stopBannerTimer() {
+        bannerTimer?.invalidate()
+        bannerTimer = nil
     }
     
     private func fetchHobbyData() {
@@ -104,7 +126,16 @@ final class HomeViewController: UIViewController {
 
 // MARK: - @objc
 extension HomeViewController {
-    
+    @objc private func updateBannerImage() {
+        currentBannerIndex = (currentBannerIndex + 1) % bannerImageArray.count
+        UIView.transition(with: bannerImageView,
+                          duration: 0.3,
+                          options: .transitionCrossDissolve,
+                          animations: {
+                              self.bannerImageView.image = self.bannerImageArray[self.currentBannerIndex]
+                          },
+                          completion: nil)
+    }
 }
 
 // MARK: UI Settings
