@@ -25,8 +25,7 @@ final class HomeViewController: UIViewController {
     
     // MARK: - UI Components
     private let logoImageView = UIImageView().then {
-//        $0.image = .logo
-        $0.image = .home
+        $0.image = .logo
     }
 
     private let menuNavigationButton = UIButton().then {
