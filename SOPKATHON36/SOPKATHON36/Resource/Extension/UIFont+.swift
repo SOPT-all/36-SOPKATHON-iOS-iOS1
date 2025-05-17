@@ -32,10 +32,11 @@ extension UIFont {
     // MARK: - Body
     static let body1 = UIFont.pretendard(weight: .regular, size: 17)
     static let body2 = UIFont.pretendard(weight: .regular, size: 15)
+    static let body3 = UIFont.pretendard(weight: .medium, size: 14)
         
     // MARK: - Caption
     static let caption1 = UIFont.pretendard(weight: .regular, size: 13)
     
-    // MARK: - Memo
-    static let memo = UIFont.pretendard(weight: .regular, size: 11)
+    // MARK: - Micro
+    static let micro = UIFont.pretendard(weight: .regular, size: 11)
 }
