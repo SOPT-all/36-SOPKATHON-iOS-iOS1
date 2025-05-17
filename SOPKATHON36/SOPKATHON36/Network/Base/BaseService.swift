@@ -63,13 +63,14 @@ final class BaseService {
         NetworkLogger.responseLog(response: httpResponse, data: data)
 
         do {
+            print("type\(Response.self)")
             let decoded = try JSONDecoder().decode(BaseResponse<Response>.self, from: data)
-
+            
             guard let data = decoded.data else {
                 throw NetworkError.noData
             }
 
-            guard (200...299).contains(decoded.status_code) else {
+            guard (200...299).contains(decoded.statusCode) else {
                 throw NetworkError.serverErrorMessage(decoded.message)
             }
 
