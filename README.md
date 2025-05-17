@@ -1,6 +1,5 @@
-<div align="center">
-  <img src="https://capsule-render.vercel.app/api?type=soft&color=0:0e0f12,100:2b2e38&height=200&text=🏃%2036%20SOPKATHON%20iOS1%20🍎&animation=&fontColor=ffffff&fontSize=60" />
-</div>
+
+![표지](https://github.com/user-attachments/assets/2ebc6c12-580c-43c9-8a1a-055ee565a7d6)
 
 
 
@@ -51,14 +50,14 @@ ex) style/#1-UI구현
 <br> 
 
 
-### **✅ 커밋 컨벤션**
+### **🎯 커밋 컨벤션**
 
-커밋은 잘 쪼개서 적당히 ~ 
+- 커밋은 잘 쪼개서 적당히 ~ 
 
-너무 많은 내용을 한 번에 커밋하지 않기 !~!
+- 너무 많은 내용을 한 번에 커밋하지 않기 !~!
 
 
-**종류**
+**✅ 종류**
 
 ```markdown
 [Feat] : 새로운 기능 구현
@@ -70,7 +69,7 @@ ex) style/#1-UI구현
 [Style] : UI 그리기 
 ```
 
-**메세지**
+**💬 메세지**
 
 ```markdown
 종류: #이슈번호 설명
