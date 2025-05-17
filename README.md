@@ -19,6 +19,12 @@
 
 <br>
 
+# 📱 환경 설정
+| 최소 버전 | 시뮬레이터 |
+| --- | --- |
+| 17.6 | iPhone 13 mini |
+
+
 # 👨‍💻 팀원 역할 분배
 
 | <img src="https://avatars.githubusercontent.com/u/80569323?v=4" width="150" height="150"/> | <img src="https://avatars.githubusercontent.com/u/139556438?v=4" width="150" height="150"/> | <img src="https://avatars.githubusercontent.com/u/109647045?v=4" width="150" height="150"/> | <img src="https://avatars.githubusercontent.com/u/165630285?v=4" width="150" height="150"/> |
