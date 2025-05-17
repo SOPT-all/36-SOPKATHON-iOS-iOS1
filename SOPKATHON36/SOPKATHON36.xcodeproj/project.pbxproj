@@ -20,29 +20,17 @@
 		CB763BCC2DD64FCF0073DFCD /* Exceptions for "SOPKATHON36" folder in "SOPKATHON36" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
-				"Resource/Extension/UIStackView+.swift",
 				Resource/Info.plist,
 			);
 			target = CB763BB92DD64FCD0073DFCD /* SOPKATHON36 */;
 		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
-/* Begin PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet section */
-		78A684BA2DD8F00000ADC34E /* Exceptions for "SOPKATHON36" folder in "Copy Bundle Resources" phase from "SOPKATHON36" target */ = {
-			isa = PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet;
-			buildPhase = CB763BB82DD64FCD0073DFCD /* Resources */;
-			membershipExceptions = (
-				"Resource/Extension/UIStackView+.swift",
-			);
-		};
-/* End PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet section */
-
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		CB763BBC2DD64FCD0073DFCD /* SOPKATHON36 */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
 				CB763BCC2DD64FCF0073DFCD /* Exceptions for "SOPKATHON36" folder in "SOPKATHON36" target */,
-				78A684BA2DD8F00000ADC34E /* Exceptions for "SOPKATHON36" folder in "Copy Bundle Resources" phase from "SOPKATHON36" target */,
 			);
 			path = SOPKATHON36;
 			sourceTree = "<group>";
@@ -174,7 +162,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = D2DRA3F792;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SOPKATHON36/Resource/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -206,7 +194,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = D2DRA3F792;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SOPKATHON36/Resource/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
