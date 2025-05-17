@@ -36,6 +36,6 @@ extension UIFont {
     // MARK: - Caption
     static let caption1 = UIFont.pretendard(weight: .regular, size: 13)
     
-    // MARK: - Memo
-    static let memo = UIFont.pretendard(weight: .regular, size: 11)
+    // MARK: - Micro
+    static let micro = UIFont.pretendard(weight: .regular, size: 11)
 }
