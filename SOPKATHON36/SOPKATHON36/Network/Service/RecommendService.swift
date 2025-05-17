@@ -14,15 +14,11 @@ final class DefaultRecommendService: RecommendServiceProtocol {
     
     func fetchRecommendUser() async throws -> RecommendUserEntity {
         do {
-            let response: BaseResponse<RecommendResponse> = try await network.request(endPoint: .recommend)
+            let response: RecommendResponse = try await network.request(endPoint: .recommend)
             
-            guard let data = response.data else {
-                throw NetworkError.noData
-            }
-            
-            return data.toEntity()
+            return response.toEntity()
         } catch {
-            print("error")
+            print("\(error.localizedDescription)")
             return .mock()
         }
     }

@@ -35,8 +35,8 @@ final class MatchingCardView: UIView {
     
     private func setDivider() -> UIView {
         let view = UIView()
-        view.backgroundColor = .gray700
-        return UIView()
+        view.backgroundColor = .gray300
+        return view
     }
     
     private func setStyle() {
@@ -47,7 +47,7 @@ final class MatchingCardView: UIView {
         
         nameLabel.do {
             $0.textColor = .black
-            $0.font = .head1
+            $0.font = .systemFont(ofSize: 22, weight: .semibold)
         }
         
         locationLabel.do {

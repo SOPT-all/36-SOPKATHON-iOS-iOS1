@@ -9,7 +9,9 @@ import UIKit
 
 final class MatchingViewController: BaseViewController {
 
-    private let recommendService: RecommendServiceProtocol = MockRecommendService()
+    private let recommendService: RecommendServiceProtocol = DefaultRecommendService()
+    private let matchingService: MatchingServiceProtocol = DefaultMatchingService()
+    
     private var recommendUser: RecommendUserEntity?
     
     private let rootView = MatchingView()
@@ -41,7 +43,18 @@ final class MatchingViewController: BaseViewController {
     
     @objc
     private func matchingButtonTapped() {
-        
+        Task {
+            do {
+                guard let id = recommendUser?.id else { return }
+                let phone = try await matchingService.matching(id: id)
+                print("전화번호 : \(phone)")
+//                let viewController = MatchSuccessViewController(phone: phone)
+                let viewController = MatchSuccessViewController()
+                navigationController?.pushViewController(viewController, animated: true)
+            } catch {
+                print("실패 !!!!! ")
+            }
+        }
     }
     
     private func fetchRecommend() {

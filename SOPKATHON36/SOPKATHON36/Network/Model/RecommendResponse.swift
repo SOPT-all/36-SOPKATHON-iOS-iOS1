@@ -9,7 +9,6 @@ import Foundation
 
 struct RecommendResponse: Decodable {
     let profile_id: Int
-    let profile_image: String
     let nickname: String
     let area: String
     let distance: Float
