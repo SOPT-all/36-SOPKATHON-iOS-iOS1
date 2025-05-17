@@ -8,34 +8,38 @@
 import Foundation
 
 enum EndPoint {
-    // get 예시
-    case fetch
-    // post 예시
-    case login
-
+    case register // 프로필 등록
+    case recommend // 취미 맞는 친구 랜덤 추천
+    case matching(Int) // 매칭 수락
+    case fetchContents // 취미 맞는 콘텐츠 목록 조회
+    
     var restType: HTTPMethodType {
         switch self {
-        case .fetch:
-            return .get
-        case .login:
-            return .post
+        case .register, .matching:
+                .post
+        case .recommend, .fetchContents:
+                .get
         }
     }
-
+    
     var url: String {
         switch self {
-        case .fetch:
-            return ""
-        case .login:
-            return ""
+        case .register:
+            "/api/v1/profile"
+        case .recommend:
+            "/api/v1/profile/recommend"
+        case .matching(let id):
+            "api/v1/matching/\(id)"
+        case .fetchContents:
+            "api/v1/contents?hobby=등산"
         }
     }
-
+    
     var header: [String: String] {
         switch self {
-        case .fetch:
+        case .register:
             HeaderType.none.value
-        case .login:
+        case .recommend, .matching, .fetchContents:
             HeaderType.auth.value
         }
     }
