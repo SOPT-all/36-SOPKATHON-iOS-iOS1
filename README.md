@@ -9,6 +9,13 @@
 
 <br>
 
+# 🎥 시연 영상
+|    구현 내용    |   IPhone 13 mini  | 
+| :-------------: | :----------: | 
+| GIF | <img src = "https://github.com/user-attachments/assets/bdd3a105-7ae0-4e9a-b9bf-96d69435aff5" width ="250"> |
+
+<br>
+
 # 🛠️ 사용 기술 선정
 
 | 라이브러리 | 목적 |
@@ -96,6 +103,8 @@ ex) style: #1 UI 구현
 # 📸 iOS 팀원 사진
 ### Before
 ![솝커톤36](https://github.com/user-attachments/assets/427f1d2a-231e-4643-9d18-344f387e332a)
+
+<br>
 
 ### After
 ![사진 2025  5  18  오전 8 04 #2](https://github.com/user-attachments/assets/9fb8a754-3853-4e20-8f10-bac3394b0273)
