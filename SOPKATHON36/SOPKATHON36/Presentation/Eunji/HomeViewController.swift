@@ -16,6 +16,22 @@ final class HomeViewController: UIViewController {
 
     
     // MARK: - UI Components
+    private let menuNavigationButton = UIButton().then {
+        $0.setImage(.menuNavigation, for: .normal)
+    }
+    
+    private let welcomeSubtitleLabel = UILabel().then {
+        $0.text = "오직 (앱 이름)에서만 만날 수 있는"
+        $0.font = .caption1
+        $0.textColor = .black
+    }
+    
+    private let welcomeTitleLabel = UILabel().then {
+        $0.text = "같이 등산 갈 사람?"
+        $0.font = .display2
+        $0.textColor = .black
+    }
+    
     private let collectionViewBackgroundView = UIView().then {
         $0.backgroundColor = .systemGray4
     }
@@ -52,17 +68,15 @@ final class HomeViewController: UIViewController {
         $0.sizeToFit()
     }
     
-    private let placeCollectionView: PlaceCollectionView = {
-        let flowLayout = UICollectionViewFlowLayout()
-        flowLayout.scrollDirection = .horizontal
-        flowLayout.itemSize = .init(width: 180, height: 239)
-        flowLayout.minimumLineSpacing = 8
-        let collectionView = PlaceCollectionView(frame: .zero, collectionViewLayout: flowLayout)
-        return collectionView
-    }()
+    private let placeCollectionView = PlaceCollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout()).then {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+        layout.itemSize = CGSize(width: 180, height: 239)
+        layout.minimumLineSpacing = 8
+        $0.collectionViewLayout = layout
+        $0.showsHorizontalScrollIndicator = false
+    }
 
-
-    
     // MARK: Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -87,7 +101,10 @@ extension HomeViewController {
     private func setUpLayOuts() {
         view.backgroundColor = .white
 
-        [collectionViewBackgroundView
+        [menuNavigationButton,
+         welcomeSubtitleLabel,
+         welcomeTitleLabel,
+         collectionViewBackgroundView
         ].forEach {
             view.addSubview($0)
         }
@@ -103,6 +120,24 @@ extension HomeViewController {
     }
 
     private func setUpConstraints() {
+        menuNavigationButton.snp.makeConstraints {
+            $0.top.equalTo(view.snp.top).offset(60)
+            $0.trailing.equalToSuperview().offset(-16)
+            $0.width.height.equalTo(24)
+        }
+        
+        welcomeSubtitleLabel.snp.makeConstraints {
+            $0.leading.equalTo(welcomeTitleLabel.snp.leading)
+            $0.bottom.equalTo(welcomeTitleLabel.snp.top).offset(-6)
+            $0.height.equalTo(20)
+        }
+        
+        welcomeTitleLabel.snp.makeConstraints {
+            $0.leading.equalToSuperview().offset(16)
+            $0.bottom.equalTo(collectionViewBackgroundView.snp.top).offset(-30)
+            $0.height.equalTo(33)
+        }
+        
         collectionViewBackgroundView.snp.makeConstraints {
             $0.horizontalEdges.equalToSuperview()
             $0.bottom.equalToSuperview()
