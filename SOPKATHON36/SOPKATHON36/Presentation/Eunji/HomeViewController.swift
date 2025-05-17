@@ -13,8 +13,8 @@ import Then
 final class HomeViewController: UIViewController {
     
     // MARK: - Properties
+    private let fetchHobbyService: FetchHobby = MockFetchHobbyService()
 
-    
     // MARK: - UI Components
     private let scrollView = UIScrollView()
     private let contentView = UIView()
@@ -94,6 +94,7 @@ final class HomeViewController: UIViewController {
 
         setUpLayOuts()
         setUpConstraints()
+        fetchHobbyData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -104,6 +105,17 @@ final class HomeViewController: UIViewController {
     // MARK: Function
     private func setAddTarget() {
         
+    }
+    
+    private func fetchHobbyData() {
+        Task {
+            do {
+                let result = try await fetchHobbyService.fetchHobby(data: "")
+                placeCollectionView.update(result)
+            } catch {
+                print("데이터 로드 실패: \(error.localizedDescription)")
+            }
+        }
     }
 }
 
