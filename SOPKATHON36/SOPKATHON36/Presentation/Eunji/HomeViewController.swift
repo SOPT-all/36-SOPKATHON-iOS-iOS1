@@ -16,6 +16,9 @@ final class HomeViewController: UIViewController {
 
     
     // MARK: - UI Components
+    private let scrollView = UIScrollView()
+    private let contentView = UIView()
+
     private let menuNavigationButton = UIButton().then {
         $0.setImage(.menuNavigation, for: .normal)
     }
@@ -85,6 +88,11 @@ final class HomeViewController: UIViewController {
         setUpConstraints()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: true)
+    }
+    
     // MARK: Function
     private func setAddTarget() {
         
@@ -101,27 +109,37 @@ extension HomeViewController {
     private func setUpLayOuts() {
         view.backgroundColor = .white
 
+        view.addSubview(scrollView)
+        scrollView.addSubview(contentView)
+
         [menuNavigationButton,
          welcomeSubtitleLabel,
          welcomeTitleLabel,
-         collectionViewBackgroundView
-        ].forEach {
-            view.addSubview($0)
+         collectionViewBackgroundView].forEach {
+            contentView.addSubview($0)
         }
-        
+
         [recommendTitleLabel,
          recommendSubTitleLabel,
          showMoreButton,
-         placeCollectionView
-        ].forEach {
+         placeCollectionView].forEach {
             collectionViewBackgroundView.addSubview($0)
         }
-
     }
-
+    
     private func setUpConstraints() {
+        scrollView.snp.makeConstraints {
+            $0.edges.equalToSuperview()
+        }
+
+        contentView.snp.makeConstraints {
+            $0.edges.equalToSuperview()
+            $0.width.equalToSuperview()
+            $0.height.equalTo(762)
+        }
+        
         menuNavigationButton.snp.makeConstraints {
-            $0.top.equalTo(view.snp.top).offset(60)
+            $0.top.equalToSuperview()
             $0.trailing.equalToSuperview().offset(-16)
             $0.width.height.equalTo(24)
         }
@@ -137,9 +155,10 @@ extension HomeViewController {
             $0.bottom.equalTo(collectionViewBackgroundView.snp.top).offset(-30)
             $0.height.equalTo(33)
         }
-        
+
         collectionViewBackgroundView.snp.makeConstraints {
             $0.horizontalEdges.equalToSuperview()
+            $0.top.equalToSuperview().offset(339)
             $0.bottom.equalToSuperview()
             $0.height.equalTo(379)
         }

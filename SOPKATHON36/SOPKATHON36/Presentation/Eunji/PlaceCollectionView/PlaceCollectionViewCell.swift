@@ -39,6 +39,7 @@ final class PlaceCollectionViewCell: UICollectionViewCell {
         super.init(frame: frame)
         setUpLayOuts()
         setUpConstraints()
+        self.backgroundColor = .black
     }
     
     @available(*, unavailable)
