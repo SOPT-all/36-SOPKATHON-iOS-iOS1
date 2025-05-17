@@ -20,10 +20,6 @@ final class PlaceCollectionViewCell: UICollectionViewCell {
     // MARK: - UI Components
     private let placeImageView = UIImageView()
     
-    private let backgroundColorView = UIView().then {
-        $0.backgroundColor = .white
-    }
-    
     private let placeNameLabel = UILabel().then {
         $0.font = .body3
         $0.textColor = .black
@@ -31,7 +27,8 @@ final class PlaceCollectionViewCell: UICollectionViewCell {
     
     private let placeDetailLabel = UILabel().then {
         $0.font = .micro
-        $0.textColor = .black
+        $0.textColor = .gray800
+        $0.numberOfLines = 0
     }
     
     // MARK: - Initializer
@@ -39,7 +36,12 @@ final class PlaceCollectionViewCell: UICollectionViewCell {
         super.init(frame: frame)
         setUpLayOuts()
         setUpConstraints()
-        self.backgroundColor = .black
+        setUpShadow()
+
+        self.layer.cornerRadius = 8
+        contentView.layer.masksToBounds = true
+
+        self.backgroundColor = .white
     }
     
     required init?(coder: NSCoder) {
@@ -81,12 +83,8 @@ final class PlaceCollectionViewCell: UICollectionViewCell {
 // MARK: UI Settings
 extension PlaceCollectionViewCell {
     private func setUpLayOuts() {
-        [placeImageView, backgroundColorView].forEach {
+        [placeImageView, placeNameLabel, placeDetailLabel].forEach {
             self.addSubview($0)
-        }
-        
-        [placeNameLabel, placeDetailLabel].forEach {
-            backgroundColorView.addSubview($0)
         }
     }
 
@@ -94,26 +92,30 @@ extension PlaceCollectionViewCell {
         placeImageView.snp.makeConstraints {
             $0.top.equalToSuperview()
             $0.horizontalEdges.equalToSuperview()
-            $0.height.equalTo(166)
-        }
-        
-        backgroundColorView.snp.makeConstraints {
-            $0.top.equalTo(placeImageView.snp.bottom)
-            $0.horizontalEdges.equalToSuperview()
-            $0.height.equalTo(73)
+            $0.height.equalTo(152)
         }
         
         placeNameLabel.snp.makeConstraints {
-            $0.top.equalToSuperview().offset(10)
-            $0.leading.equalToSuperview().offset(10)
+            $0.top.equalTo(placeImageView.snp.bottom).offset(8)
+            $0.leading.equalToSuperview().offset(15)
+            $0.trailing.equalToSuperview().offset(-16)
             $0.height.equalTo(21)
         }
         
         placeDetailLabel.snp.makeConstraints {
-            $0.top.equalTo(placeNameLabel.snp.bottom).offset(2)
+            $0.top.equalTo(placeNameLabel.snp.bottom)
             $0.leading.equalTo(placeNameLabel.snp.leading)
-            $0.trailing.equalToSuperview().offset(-10)
-            $0.bottom.equalToSuperview().offset(-10)
+            $0.trailing.equalToSuperview().offset(-13)
+            $0.height.equalTo(30)
         }
     }
+    
+    private func setUpShadow() {
+        layer.shadowColor = UIColor.black.cgColor
+        layer.shadowOpacity = 0.1
+        layer.shadowOffset = CGSize(width: 0, height: 4)
+        layer.shadowRadius = 6
+        layer.masksToBounds = false
+    }
+
 }

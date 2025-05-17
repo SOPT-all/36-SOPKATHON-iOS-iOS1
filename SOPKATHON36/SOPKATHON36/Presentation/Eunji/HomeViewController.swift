@@ -65,7 +65,7 @@ final class HomeViewController: UIViewController {
     private let placeCollectionView = PlaceCollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout()).then {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
-        layout.itemSize = CGSize(width: 180, height: 239)
+        layout.itemSize = CGSize(width: 180, height: 225)
         layout.minimumLineSpacing = 8
         $0.collectionViewLayout = layout
         $0.showsHorizontalScrollIndicator = false
@@ -142,7 +142,7 @@ extension HomeViewController {
         bannerImageView.snp.makeConstraints {
             $0.top.equalTo(logoImageView.snp.bottom).offset(13)
             $0.horizontalEdges.equalToSuperview()
-            $0.height.greaterThanOrEqualTo(300)
+            $0.height.equalTo(290)
         }
         
         recommendTitleLabel.snp.makeConstraints {
@@ -166,8 +166,8 @@ extension HomeViewController {
         
         placeCollectionView.snp.makeConstraints {
             $0.horizontalEdges.equalToSuperview().inset(16)
-            $0.top.equalTo(recommendSubTitleLabel.snp.bottom).offset(20)
-            $0.height.equalTo(239)
+            $0.top.equalTo(recommendSubTitleLabel.snp.bottom).offset(16)
+            $0.height.equalTo(237)
         }
     }
 }
