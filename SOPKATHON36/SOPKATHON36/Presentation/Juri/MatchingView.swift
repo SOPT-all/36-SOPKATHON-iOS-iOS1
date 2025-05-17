@@ -12,15 +12,12 @@ import Then
 
 final class MatchingView: UIView {
     
-    // 임시
-    let card = CardEntity.mock()
-    
     var count = 1
     
     private let titleLabel = UILabel()
     private let profileImage = UIImageView()
     
-    private let cardView = MatchingCardView()
+    let cardView = MatchingCardView()
     
     let retryButton = UIButton()
     let matchingButton = UIButton()
@@ -48,7 +45,6 @@ final class MatchingView: UIView {
             $0.layer.cornerRadius = $0.layer.bounds.width / 2
         }
         cardView.do {
-            $0.dataBind(card)
             $0.roundCorners(cornerRadius: 8)
         }
         

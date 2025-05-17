@@ -143,11 +143,11 @@ final class MatchingCardView: UIView {
         }
     }
     
-    func dataBind(_ card: CardEntity) {
+    func dataBind(_ card: RecommendUserEntity) {
         self.nameLabel.text = card.name
         self.locationLabel.text = card.location
-        self.distanceLabel.text = card.distance
-        self.ageLabel.text = card.age
+        self.distanceLabel.text = "\(card.distance)km"
+        self.ageLabel.text = "\(card.age)세"
         self.informationLabel.text = card.information
     }
 }

@@ -9,6 +9,9 @@ import UIKit
 
 final class MatchingViewController: BaseViewController {
 
+    private let recommendService: RecommendServiceProtocol = MockRecommendService()
+    private var recommendUser: RecommendUserEntity?
+    
     private let rootView = MatchingView()
     
     override func loadView() {
@@ -18,6 +21,7 @@ final class MatchingViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        fetchRecommend()
         setAddTarget()
     }
     
@@ -29,6 +33,7 @@ final class MatchingViewController: BaseViewController {
     @objc
     private func retryButtonTapped() {
         if rootView.count < 5 {
+            fetchRecommend()
             rootView.count += 1
             rootView.changeCount()
         }
@@ -37,6 +42,19 @@ final class MatchingViewController: BaseViewController {
     @objc
     private func matchingButtonTapped() {
         
+    }
+    
+    private func fetchRecommend() {
+        Task {
+            do {
+                recommendUser = try await recommendService.fetchRecommendUser()
+                guard let recommendUser else { return }
+                
+                rootView.cardView.dataBind(recommendUser)
+            } catch {
+                print("error!")
+            }
+        }
     }
 
 }
