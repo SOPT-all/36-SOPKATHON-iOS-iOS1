@@ -10,6 +10,7 @@ import SnapKit
 import Then
 
 final class ProfileViewController: BaseViewController {
+    private let service = DefaultRegisterService()
     
     // MARK: - Properties
     
@@ -414,9 +415,25 @@ final class ProfileViewController: BaseViewController {
     // MARK: - Actions
     
     @objc private func registerButtonTapped() {
-        let tabBarVC = TabBarViewController()
-        tabBarVC.modalPresentationStyle = .fullScreen
-        present(tabBarVC, animated: true)
+        Task {
+            do {
+                let id = try await service.register(
+                    nickname: self.nameView.textField.text ?? "익명의 미자씨",
+                    description: self.description,
+                    age: Int(self.ageLabel.text ?? "56") ?? 56,
+                    phone_number: self.phoneField.textField.text ?? "010-1234-1234",
+                    gender: self.genderLabel.text ?? "MALE",
+                    hobby: self.hobbyLabel.text ?? "등산",
+                    sameGender: true
+                )
+                
+                let tabBarVC = TabBarViewController()
+                tabBarVC.modalPresentationStyle = .fullScreen
+                present(tabBarVC, animated: true)
+            } catch {
+                print(error.localizedDescription)
+            }
+        }
     }
     
     @objc private func genderButtonTapped(_ sender: UIButton) {

@@ -32,12 +32,12 @@ final class DefaultRegisterService: RegisterService {
         let request: RegisterRequest = .init(
             nickname: nickname,
             profile_image: "",
-            description: description,
+            description: "설명",
             age: age,
-            phone_number: phone_number,
+            phone_number: "010-1234-1234",
             gender: "MALE",
             area_id: 1,
-            hobby: hobby,
+            hobby: "등산",
             same_gender_only: false,
             profile_open: true
         )
