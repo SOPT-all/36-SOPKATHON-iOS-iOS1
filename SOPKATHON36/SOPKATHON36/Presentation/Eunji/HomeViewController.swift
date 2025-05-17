@@ -18,6 +18,12 @@ final class HomeViewController: UIViewController {
     // MARK: - UI Components
     private let scrollView = UIScrollView()
     private let contentView = UIView()
+    
+    private let logoImageView = UIImageView().then {
+        // TODO: - 영주 언니 머지 후 로고 교체 예정
+//        $0.image = .logo
+        $0.image = .home
+    }
 
     private let menuNavigationButton = UIButton().then {
         $0.setImage(.menuNavigation, for: .normal)
@@ -132,7 +138,8 @@ extension HomeViewController {
         view.addSubview(scrollView)
         scrollView.addSubview(contentView)
 
-        [menuNavigationButton,
+        [logoImageView,
+         menuNavigationButton,
          welcomeSubtitleLabel,
          welcomeTitleLabel,
          bannerCountLabel,
@@ -159,8 +166,15 @@ extension HomeViewController {
             $0.height.equalTo(762)
         }
         
+        logoImageView.snp.makeConstraints {
+            $0.centerY.equalTo(menuNavigationButton.snp.centerY)
+            $0.leading.equalToSuperview().offset(16)
+            $0.height.equalTo(24)
+            $0.width.greaterThanOrEqualTo(81)
+        }
+        
         menuNavigationButton.snp.makeConstraints {
-            $0.top.equalToSuperview()
+            $0.top.equalToSuperview().offset(-20)
             $0.trailing.equalToSuperview().offset(-16)
             $0.width.height.equalTo(24)
         }
