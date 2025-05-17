@@ -38,8 +38,7 @@ final class MatchingView: UIView {
     
     private func setStyle() {
         logoImage.do {
-            // TODO: 로고 이미지로 바꾸기
-            $0.image = .home
+            $0.image = .logo
         }
         titleLabel.do {
             $0.text = "오늘의 친구 추천이 도착했어요"
@@ -52,14 +51,6 @@ final class MatchingView: UIView {
         
         cardView.do {
             $0.roundCorners(cornerRadius: 8)
-//            $0.layer.addShadow(
-//                color: .gray300,
-//                alpha: <#T##Float#>,
-//                x: <#T##CGFloat#>,
-//                y: <#T##CGFloat#>,
-//                blur: <#T##CGFloat#>,
-//                spread: <#T##CGFloat#>
-//            )
         }
         
         retryButton.do {
