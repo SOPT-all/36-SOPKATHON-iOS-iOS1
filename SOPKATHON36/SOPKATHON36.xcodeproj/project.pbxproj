@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		D80B6BFC2DD827AA008A2CC9 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = D80B6BFB2DD827AA008A2CC9 /* SnapKit */; };
 		D80B6BFF2DD8287E008A2CC9 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = D80B6BFE2DD8287E008A2CC9 /* Then */; };
+		D80B6C022DD828EC008A2CC9 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = D80B6C012DD828EC008A2CC9 /* Kingfisher */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +42,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D80B6C022DD828EC008A2CC9 /* Kingfisher in Frameworks */,
 				D80B6BFC2DD827AA008A2CC9 /* SnapKit in Frameworks */,
 				D80B6BFF2DD8287E008A2CC9 /* Then in Frameworks */,
 			);
@@ -87,6 +89,7 @@
 			packageProductDependencies = (
 				D80B6BFB2DD827AA008A2CC9 /* SnapKit */,
 				D80B6BFE2DD8287E008A2CC9 /* Then */,
+				D80B6C012DD828EC008A2CC9 /* Kingfisher */,
 			);
 			productName = SOPKATHON36;
 			productReference = CB763BBA2DD64FCD0073DFCD /* SOPKATHON36.app */;
@@ -119,6 +122,7 @@
 			packageReferences = (
 				D80B6BFA2DD827AA008A2CC9 /* XCRemoteSwiftPackageReference "SnapKit" */,
 				D80B6BFD2DD8287E008A2CC9 /* XCRemoteSwiftPackageReference "Then" */,
+				D80B6C002DD828EC008A2CC9 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = CB763BBB2DD64FCD0073DFCD /* Products */;
@@ -374,6 +378,14 @@
 				minimumVersion = 3.0.0;
 			};
 		};
+		D80B6C002DD828EC008A2CC9 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 8.3.2;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -386,6 +398,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = D80B6BFD2DD8287E008A2CC9 /* XCRemoteSwiftPackageReference "Then" */;
 			productName = Then;
+		};
+		D80B6C012DD828EC008A2CC9 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D80B6C002DD828EC008A2CC9 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
