@@ -83,13 +83,6 @@ extension UIColor {
     static let primaryStrong = ColorSystem.Primary.strong
     static let primaryHeavy = ColorSystem.Primary.heavy
     
-    // Common Colors
-    static let commonWhite = ColorSystem.Common.white
-    static let commonBlack = ColorSystem.Common.black
-    
-    // Background Colors
-    static let backgroundNormal = ColorSystem.Background.normal
-    
     // Line Colors
     static let lineNormal = ColorSystem.Line.normal
     static let lineNeutral = ColorSystem.Line.neutral
