@@ -15,7 +15,10 @@ final class BaseService {
         endPoint: EndPoint,
         body: Encodable? = nil
     ) async throws -> Response {
-        guard let url = URL(string: endPoint.url) else {
+        guard let encodedURL = endPoint.url.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else {
+            throw NetworkError.urlError
+        }
+        guard let url = URL(string: encodedURL) else {
             throw NetworkError.urlError
         }
 
@@ -65,7 +68,7 @@ final class BaseService {
                 throw NetworkError.noData
             }
 
-            guard (200...299).contains(decoded.code) else {
+            guard (200...299).contains(decoded.status_code) else {
                 throw NetworkError.serverErrorMessage(decoded.message)
             }
 

@@ -30,8 +30,7 @@ enum HeaderType {
         case .auth:
             [
                 "Content-Type": "application/json",
-                // userID로 대체
-                "Authorization": "1"
+                "profile_id": "1"
             ]
         case .none:
             ["Content-Type": "application/json"]
